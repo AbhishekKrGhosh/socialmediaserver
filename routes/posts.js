@@ -5,7 +5,7 @@ const Community = require('../models/Comunity');
 
 router.post('/posts', async (req, res) => {
   try {
-    const { communityName, firstName, lastName, description, location, image, profileImage } = req.body;
+    const { communityName, firstName, lastName, description, location, image, profileImage, createdAt } = req.body;
 
     const newPost = new Post({
       communityName,
@@ -14,7 +14,8 @@ router.post('/posts', async (req, res) => {
       description,
       location,
       image,
-      profileImage
+      profileImage,
+      createdAt
     });
 
     await newPost.save();
